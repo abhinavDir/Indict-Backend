@@ -1,0 +1,10 @@
+node_modules
+npm-debug.log
+.env
+public/music-*
+public/trim-*
+public/final-*
+.git
+.gitignore
+Dockerfile
+.dockerignore
