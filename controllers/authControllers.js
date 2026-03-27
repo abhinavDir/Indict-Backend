@@ -57,14 +57,16 @@ export const signUp = async (req, res) => {
     // set cookie
     res.cookie("token", token, {
       httpOnly: true,
-      secure: false, // true in production
-      sameSite: "Strict",
+      secure: true, // true in production
+      sameSite: "none",
       maxAge: 10 * 365 * 24 * 60 * 60 * 1000,
     });
 
     return res.status(201).json({
       message: "Signup successful",
       userId: newUser._id,
+        token // 🔥 ADD THIS
+
     });
   } catch (error) {
     // console.error(error);
@@ -109,6 +111,8 @@ export const signIn = async (req, res) => {
     return res.status(200).json({
       message: "Signin successful",
       userId: user._id,
+        token // 🔥 ADD THIS
+
     });
   } catch (error) {
     console.error(error);
