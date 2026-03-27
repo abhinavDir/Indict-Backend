@@ -39,7 +39,7 @@ process.on("unhandledRejection", (err) => {
 // ================= MIDDLEWARE =================
 
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "https://indict-beta.vercel.app",
   credentials: true,
 }));
 
