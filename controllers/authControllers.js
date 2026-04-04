@@ -102,11 +102,11 @@ export const signIn = async (req, res) => {
     const token = generateToken(user._id);
 
     res.cookie("token", token, {
-      httpOnly: true,
-      secure: false,
-      sameSite: "Strict",
-      maxAge: 10 * 365 * 24 * 60 * 60 * 1000,
-    });
+  httpOnly: true,
+  secure: true,        // ✅ REQUIRED
+  sameSite: "none",    // ✅ REQUIRED
+  maxAge: 10 * 365 * 24 * 60 * 60 * 1000,
+});
 
     return res.status(200).json({
       message: "Signin successful",
